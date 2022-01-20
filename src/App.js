@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 import Dictionary from "./Dictionary";
 
 function App() {
