@@ -1,3 +1,16 @@
 body {
   background: rgb(20, 20, 20);
 }
+
+p {
+  opacity: 0.8;
+}
+
+em {
+  opacity: 0.4;
+}
+
+.Synonyms {
+  margin: 24px 0;
+  color: lightyellow;
+}
