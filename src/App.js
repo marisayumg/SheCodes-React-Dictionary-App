@@ -9,7 +9,7 @@ function App() {
         <p>Dictionary App</p>
       </header>
       <main>
-        <Dictionary />
+        <Dictionary defaultKeyword="Search" />
       </main>
       <footer>
         <p>Open-source code by Marisa Gama</p>
