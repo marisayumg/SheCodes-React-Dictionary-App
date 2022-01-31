@@ -9,10 +9,27 @@ function App() {
         <p>Dictionary App</p>
       </header>
       <main>
-        <Dictionary defaultKeyword="Search" />
+        <Dictionary defaultKeyword="Mycelium" />
       </main>
       <footer>
-        <p>Open-source code by Marisa Gama</p>
+        <p>
+          <a
+            href="https://github.com/marisayumg/dictionary-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-source
+          </a>{" "}
+          code by{" "}
+          <a
+            href="https://github.com/marisayumg"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Marisa Gama
+          </a>
+        </p>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </footer>
     </div>
