@@ -4,27 +4,6 @@
   box-sizing: border-box;
 }
 
-.App {
-  height: 100vh;
-  padding: 4vw;
-  color: white;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16vw;
-}
-
-.App-logo {
-  height: 4vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

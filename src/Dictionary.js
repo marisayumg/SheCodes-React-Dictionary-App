@@ -49,14 +49,22 @@ export default function Dictionary(props) {
   if (loaded) {
     return (
       <div className="Dictionary">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            onChange={updateKeyword}
-            defaultValue="Search any keyword"
-          />
-        </form>
-        <SearchResult results={results} />
+        <div className="Quadrant">
+          <img src="https://images.pexels.com/photos/6631545/pexels-photo-6631545.jpeg" />
+        </div>
+        <div className="Quadrant">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              onChange={updateKeyword}
+              placeholder="Search any keyword"
+            />
+          </form>
+          <h1 className="Keyword">{keyword}</h1>
+        </div>
+        <div className="Quadrant">
+          <SearchResult results={results} />
+        </div>
         <Photos photos={photos} />
       </div>
     );

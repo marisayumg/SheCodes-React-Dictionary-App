@@ -5,33 +5,25 @@ import Dictionary from "./Dictionary";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Dictionary App</p>
+      <header>
+        <div className="Shapes">
+          <div className="Circle Shape"></div>
+        </div>
+        <div className="Info-wrapper">
+          <div className="Introduction">
+            <p>Dictionary</p>
+          </div>
+          <div className="Time">
+            <p className="Hour">Wed 16:28:49</p>
+          </div>
+        </div>
+        <div className="Shapes">
+          <div className="Square Shape"></div>
+        </div>
       </header>
       <main>
         <Dictionary defaultKeyword="Mycelium" />
       </main>
-      <footer>
-        <p>
-          <a
-            href="https://github.com/marisayumg/dictionary-app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-source
-          </a>{" "}
-          code by{" "}
-          <a
-            href="https://github.com/marisayumg"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            Marisa Gama
-          </a>
-        </p>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      </footer>
     </div>
   );
 }

@@ -1,32 +1,40 @@
+/* Playfair and IBM Plex Sans fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=Playfair+Display&display=swap");
+
+/* Colour styles */
+
+:root {
+  --primary: #141414;
+  --background: #fdf8f5;
+}
+
+/* keyframe animations */
+
+@keyframes rotate360 {
+  0% {
+    transform-origin: center center;
+    transform: rotate(0);
+  }
+  100% {
+    transform-origin: center center;
+    transform: rotate(360deg);
+  }
+}
+
+/* General styles */
+
 body {
-  background: rgb(20, 20, 20);
-  width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+  font-family: "IBM Plex Sans Thai Looped", sans-serif;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
 }
 
-p {
-  opacity: 0.7;
-  margin-bottom: 32px;
-}
-
-a {
-  color: #6557aa;
-  text-decoration: none;
-  transition: color 250ms ease-out;
-}
-
-a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-em {
-  font-size: 20px;
-  font-weight: 300;
-  color: #6557aa;
+h1 {
+  text-transform: uppercase;
 }
 
 ul {
@@ -45,13 +53,14 @@ li {
   padding: 4px 12px;
 }
 
+form {
+  text-align: center;
+}
+
 input {
-  width: 50%;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 300;
-  font-size: 1rem;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 0.875rem;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -62,6 +71,10 @@ input {
 
 input:focus {
   outline: none;
+}
+
+input[type="text"]::placeholder {
+  opacity: 1;
 }
 
 input[type="text"]::-ms-clear {
@@ -81,19 +94,103 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.main {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 50% 45%;
-  gap: 4vw;
-  align-items: top;
-  margin: 100px 0;
+.App {
+  width: 100vw;
 }
 
-.keyword {
+/* Menu styles */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 6rem;
+  z-index: 10;
+  background: var(--background);
+  border-right: 1px solid var(--primary);
+  padding: 1vw;
+  padding-bottom: 1.8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .Info-wrapper {
+  left: -50px;
+  width: 90vh;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.15rem;
+}
+
+header .Introduction {
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header .Time {
+  width: 30vh;
+}
+
+header .Shapes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+header .Shape {
+  width: 40px;
+  height: 40px;
+  outline: 1px solid var(--primary);
+}
+
+.Circle {
+  border-radius: 100%;
+}
+
+.Square {
+  transform: rotate(45deg);
+  animation: 10s rotate360 infinite linear;
+}
+
+/* search results styles */
+
+main {
+  margin-left: 6rem;
+}
+
+.Dictionary {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.Quadrant {
+  width: 100%;
+  height: 100vh;
+  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+  padding: 1vw;
+  overflow-y: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Keyword {
   font-size: 96px;
   position: relative;
   top: -10px;
+  text-align: center;
 }
 
 .Meaning {
@@ -120,8 +217,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .play-btn {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   background: #6557aa;
   border-radius: 100px;
 }
@@ -139,7 +236,7 @@ input[type="search"]::-webkit-search-results-decoration {
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 2vw;
-  margin: 40px 0;
+  margin: 40px 0 0 0;
 }
 
 .image-column img {
@@ -156,6 +253,10 @@ input[type="search"]::-webkit-search-results-decoration {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 100px;
   transition: background 250ms ease-out;
+}
+
+.Phonetics:hover {
+  text-decoration: none;
 }
 
 .Phonetics:hover {
