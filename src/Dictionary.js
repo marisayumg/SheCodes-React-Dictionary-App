@@ -1,82 +1,45 @@
-import axios from "axios";
 import React, { useState } from "react";
 import "./Dictionary.css";
-import SearchResult from "./SearchResult";
-import Photos from "./Photos";
+import axios from "axios";
 
-export default function Dictionary(props) {
-  let [keyword, setKeyword] = useState(props.defaultKeyword);
-  let [results, setResults] = useState(null);
-  let [loaded, setLoaded] = useState(false);
-  let [photos, setPhotos] = useState(null);
+export default function Dictionary() {
+  let [keyword, setKeyword] = useState("");
 
-  function load() {
-    search();
-    setLoaded(true);
+  function handleResponse(response) {
+    console.log(response.data[0]);
   }
 
-  function search() {
-    //API documentation: https://dictionaryapi.dev/
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(apiUrl).then(handleDictionaryResponse);
-
-    // https://www.pexels.com/api/documentation/
-    let PexelsApiKey = `563492ad6f917000010000010fc4845dc4274f2f966d34d83b0a9a51`;
-    let PexelsApiUrl = `https://api.pexels.com/v1/search?page=1&per_page=3&query=${keyword}`;
-    let headers = { Authorization: `Bearer ${PexelsApiKey}` };
-    axios.get(PexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
-  }
-
-  function handlePexelsResponse(response) {
-    setPhotos(response.data.photos);
-  }
-
-  function handleDictionaryResponse(response) {
-    console.log(response);
-    setResults(response.data[0]);
-  }
-
-  function handleSubmit(event) {
+  /* API call */
+  function search(event) {
     event.preventDefault();
-    search();
+    let ApiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios.get(ApiUrl).then(handleResponse);
   }
 
-  function updateKeyword(event) {
-    event.preventDefault();
+  /* Changes keyword everytime we type */
+  function handleKeyword(event) {
     setKeyword(event.target.value);
   }
 
-  if (loaded) {
-    return (
-      <div className="Dictionary">
-        <div className="Quadrant">
-          <img
-            src={
-              "https://images.pexels.com/photos/6631545/pexels-photo-6631545.jpeg"
-            }
-            title="Scroll down"
-          />
-        </div>
-        <div className="Quadrant Quadrant-Split">
-          <div className="Quadrant-Top">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                onChange={updateKeyword}
-                placeholder="Search any keyword"
-              />
-            </form>
-            <h1 className="Keyword">{keyword}</h1>
-          </div>
-        </div>
-        <div className="Quadrant">
-          <SearchResult results={results} />
-        </div>
-        <Photos photos={photos} />
+  return (
+    <div className="Dictionary">
+      <div className="Half">
+        <img
+          src="https://images.pexels.com/photos/6631716/pexels-photo-6631716.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+          alt="image"
+        />
       </div>
-    );
-  } else {
-    load();
-    return null;
-  }
+      <div className="Half">
+        <form onSubmit={search}>
+          <input
+            type="search"
+            placeholder="Search a keyword"
+            autoFocus={true}
+            onChange={handleKeyword}
+          />
+        </form>
+        <h1>{keyword}</h1>
+      </div>
+    </div>
+  );
 }

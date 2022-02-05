@@ -4,10 +4,6 @@ import "./Dictionary.css";
 import Dictionary from "./Dictionary";
 
 function App() {
-  function setTheme(themeName) {
-    localStorage.setItem("theme", themeName);
-  }
-
   return (
     <div className="App">
       <header>
@@ -16,10 +12,10 @@ function App() {
         </div>
         <div className="Info-wrapper">
           <div className="Introduction">
-            <p>Dictionary</p>
+            <p className="serif">Dictionary</p>
           </div>
-          <div className="Time">
-            <p className="Hour">Wed 16:28:49</p>
+          <div className="Time serif">
+            <p className="Hour">Wed — 16:28:49</p>
           </div>
         </div>
         <div className="Shapes">
