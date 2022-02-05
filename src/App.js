@@ -1,8 +1,13 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import "./Dictionary.css";
 import Dictionary from "./Dictionary";
 
 function App() {
+  function setTheme(themeName) {
+    localStorage.setItem("theme", themeName);
+  }
+
   return (
     <div className="App">
       <header>

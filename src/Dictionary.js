@@ -11,8 +11,8 @@ export default function Dictionary(props) {
   let [photos, setPhotos] = useState(null);
 
   function load() {
-    setLoaded(true);
     search();
+    setLoaded(true);
   }
 
   function search() {
@@ -28,11 +28,11 @@ export default function Dictionary(props) {
   }
 
   function handlePexelsResponse(response) {
-    console.log(response.data);
     setPhotos(response.data.photos);
   }
 
   function handleDictionaryResponse(response) {
+    console.log(response);
     setResults(response.data[0]);
   }
 
@@ -50,17 +50,24 @@ export default function Dictionary(props) {
     return (
       <div className="Dictionary">
         <div className="Quadrant">
-          <img src="https://images.pexels.com/photos/6631545/pexels-photo-6631545.jpeg" />
+          <img
+            src={
+              "https://images.pexels.com/photos/6631545/pexels-photo-6631545.jpeg"
+            }
+            title="Scroll down"
+          />
         </div>
-        <div className="Quadrant">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="search"
-              onChange={updateKeyword}
-              placeholder="Search any keyword"
-            />
-          </form>
-          <h1 className="Keyword">{keyword}</h1>
+        <div className="Quadrant Quadrant-Split">
+          <div className="Quadrant-Top">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                onChange={updateKeyword}
+                placeholder="Search any keyword"
+              />
+            </form>
+            <h1 className="Keyword">{keyword}</h1>
+          </div>
         </div>
         <div className="Quadrant">
           <SearchResult results={results} />
