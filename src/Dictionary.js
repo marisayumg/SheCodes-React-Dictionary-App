@@ -27,7 +27,7 @@ export default function Dictionary() {
       <div className="Half">
         <img
           src="https://images.pexels.com/photos/6631716/pexels-photo-6631716.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
-          alt="image"
+          alt="mushrooms"
         />
       </div>
       <div className="Half">
