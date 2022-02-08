@@ -4,9 +4,19 @@ import axios from "axios";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
+  let [audio, setAudio] = useState("");
+  let [type, setType] = useState("");
+  let [meaning, setMeaning] = useState("");
+  let [phonetics, setPhonetics] = useState("");
+  let [results, setResults] = useState({});
 
   function handleResponse(response) {
     console.log(response.data[0]);
+    setMeaning(response.data[0].meanings[0].definitions[0].definition);
+    setType(response.data[0].meanings[0].partOfSpeech);
+    setPhonetics(response.data[0].phonetics[0].text);
+    setAudio(response.data[0].phonetics[0].audio);
+    setResults(response.data[0]);
   }
 
   /* API call */
@@ -30,16 +40,30 @@ export default function Dictionary() {
           alt="mushrooms"
         />
       </div>
-      <div className="Half">
-        <form onSubmit={search}>
-          <input
-            type="search"
-            placeholder="Search a keyword"
-            autoFocus={true}
-            onChange={handleKeyword}
-          />
-        </form>
-        <h1>{keyword}</h1>
+      <div className="Half-split">
+        <div className="Quarter Centered">
+          <form onSubmit={search}>
+            <input
+              type="search"
+              placeholder="Search a keyword"
+              autoFocus={true}
+              onChange={handleKeyword}
+            />
+          </form>
+          <h1>{keyword}</h1>
+          <a
+            className="Phonetics"
+            href={audio}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {phonetics}
+          </a>
+        </div>
+        <div className="Quarter">
+          <p className="partOfSpeech">{type}</p>
+          <h2>{meaning}</h2>
+        </div>
       </div>
     </div>
   );

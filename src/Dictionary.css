@@ -36,7 +36,13 @@ body {
 h1 {
   font-size: 6vw;
   line-height: 90%;
-  text-transform: Ca;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 2.2vw;
+  line-height: 140%;
+  font-weight: 100;
 }
 
 ul {
@@ -53,6 +59,11 @@ li {
   border: var(--primary);
   height: 100%;
   padding: 4px 12px;
+}
+
+button {
+  border: 1px solid var(--primary);
+  background: transparent;
 }
 
 input {
@@ -181,14 +192,20 @@ main {
   padding: 1vw;
 }
 
-.Quadrant-Split {
+.Half-split {
   display: grid;
   grid-template-rows: 50% 50%;
-  padding: 1vw;
 }
 
-.Quadrant-Top {
+.Quarter {
+  padding: 1vw;
   border-bottom: 1px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Centered {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -202,77 +219,26 @@ img {
   object-fit: cover;
 }
 
-.Meaning {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 50% 45%;
-  gap: 4vw;
+a {
+  display: inline-block;
+  padding: 4px 16px;
+  color: var(--primary);
+  background: var(--background);
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  border-radius: 40px;
+  transition: all 250ms ease;
+}
+
+a:hover {
+  background: var(--primary);
+  color: var(--background);
+  border: 1px solid var(--primary);
 }
 
 .partOfSpeech {
-  display: inline-block;
-  background: #6557aa;
-  padding: 8px 16px;
-  border-radius: 4px;
-}
-
-.definition {
-  font-size: 32px;
-}
-
-.Synonyms {
-  font-size: 14px;
-  margin: 24px 0;
-}
-
-.play-btn {
-  width: 24px;
-  height: 24px;
-  background: #6557aa;
-  border-radius: 100px;
-}
-
-.result {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 40px;
-}
-
-/* Photos section */
-
-.Photos {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  gap: 2vw;
-  margin: 40px 0 0 0;
-}
-
-.image-column img {
-  width: 100%;
-}
-
-.Phonetics {
-  width: 240px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin: 16px 0;
-  padding: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 100px;
-  transition: background 250ms ease-out;
-}
-
-.Phonetics:hover {
-  text-decoration: none;
-}
-
-.Phonetics:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-footer p {
-  opacity: 1;
+  font-family: Playfair Display;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
 }
