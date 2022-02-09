@@ -1,4 +1,6 @@
 import React from "react";
+import Synonyms from "./Synonyms";
+import Examples from "./Examples";
 
 export default function Results(props) {
   if (props.results) {
@@ -9,7 +11,8 @@ export default function Results(props) {
             <div className="Quarter" key={index}>
               <p className="partOfSpeech">{meaning.partOfSpeech}</p>
               <h2>{meaning.definitions[0].definition}</h2>
-              <h3>"{meaning.definitions[0].example}"</h3>
+              <Synonyms synonyms={meaning.definitions[0].synonyms} />
+              <Examples examples={meaning.definitions[0].example} />
             </div>
           );
         })}
