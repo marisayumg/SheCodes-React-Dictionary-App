@@ -15,7 +15,17 @@ function App() {
             <p className="serif">Dictionary</p>
           </div>
           <div className="Time serif">
-            <p className="Hour">Wed — 16:28:49</p>
+            <p>
+              Made by{"  "}
+              <a
+                className="link"
+                href="https://github.com/marisayumg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                myg
+              </a>
+            </p>
           </div>
         </div>
         <div className="Shapes">

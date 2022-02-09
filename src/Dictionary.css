@@ -70,8 +70,20 @@ li {
 }
 
 a {
+  color: var(--primary);
+  opacity: 0.4;
+  transition: all 250ms ease;
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary);
+}
+
+a:hover {
+  opacity: 1;
+}
+
+button {
   display: inline-block;
-  padding: 4px 16px;
+  padding: 8px 16px;
   color: var(--primary);
   background: var(--background);
   text-decoration: none;
@@ -80,8 +92,8 @@ a {
   transition: all 250ms ease;
 }
 
-a:hover {
-  padding: 4px 40px;
+button:hover {
+  padding: 8px 40px;
 }
 
 input {

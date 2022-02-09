@@ -77,14 +77,14 @@ export default function Dictionary(props) {
               />
             </form>
             <h1>{keyword}</h1>
-            <a
+            <button
               className="Phonetics"
               href={audio}
               target="_blank"
               rel="noreferrer"
             >
               {phonetics}
-            </a>
+            </button>
           </div>
           <div className="Quarter">
             <p className="partOfSpeech">Origin</p>
